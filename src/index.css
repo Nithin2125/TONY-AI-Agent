@@ -1,0 +1,1676 @@
+* {
+  box-sizing: border-box;
+}
+
+
+:root {
+
+  --deep-ocean: #021B2B;
+  --ocean-blue: #04395E;
+  --aqua: #00C2D7;
+  --sea-glass: #7DE2D1;
+  --white: #E8FBFF;
+
+}
+
+
+
+body {
+
+  margin:0;
+
+  min-height:100vh;
+
+  font-family:
+  "Inter",
+  "Segoe UI",
+  sans-serif;
+
+
+  color:var(--white);
+
+
+  overflow-x:hidden;
+
+
+
+  background:
+
+
+  radial-gradient(
+    circle at 50% 0%,
+    rgba(0,194,215,0.25),
+    transparent 35%
+  ),
+
+
+  radial-gradient(
+    circle at 10% 90%,
+    rgba(125,226,209,0.18),
+    transparent 40%
+  ),
+
+
+  linear-gradient(
+    160deg,
+    #021B2B,
+    #03263d,
+    #010b14
+  );
+
+
+}
+
+
+
+
+
+#root {
+
+  min-height:100vh;
+
+}
+
+
+
+
+/* OCEAN LIGHT MOVEMENT */
+
+
+body::before {
+
+
+content:"";
+
+
+position:fixed;
+
+
+inset:-50%;
+
+
+background:
+
+
+linear-gradient(
+
+120deg,
+
+transparent 40%,
+
+rgba(0,194,215,.12),
+
+transparent 60%
+
+);
+
+
+
+animation:
+
+waterLight 12s infinite linear;
+
+
+pointer-events:none;
+
+
+z-index:-1;
+
+
+}
+
+
+
+@keyframes waterLight {
+
+
+0%{
+
+transform:translateY(-20%) rotate(0deg);
+
+}
+
+
+100%{
+
+transform:translateY(20%) rotate(360deg);
+
+}
+
+
+}
+
+
+
+
+
+
+
+/* MAIN CONTAINER */
+
+
+.tony-interface {
+
+
+min-height:100vh;
+
+
+padding:35px;
+
+
+display:flex;
+
+
+flex-direction:column;
+
+
+gap:25px;
+
+
+position:relative;
+
+
+}
+
+
+
+
+
+/* HEADER */
+
+
+.top-header {
+
+
+display:flex;
+
+
+justify-content:space-between;
+
+
+align-items:center;
+
+
+
+padding:25px 30px;
+
+
+
+background:
+
+
+rgba(255,255,255,.08);
+
+
+
+backdrop-filter:
+
+blur(25px);
+
+
+
+border:
+
+
+1px solid
+
+rgba(125,226,209,.25);
+
+
+
+border-radius:28px;
+
+
+
+box-shadow:
+
+
+0 20px 70px
+
+rgba(0,0,0,.45);
+
+
+
+}
+
+
+
+.top-header h1 {
+
+
+margin:0;
+
+
+font-size:46px;
+
+
+letter-spacing:12px;
+
+
+
+background:
+
+
+linear-gradient(
+
+90deg,
+
+#a7f8ff,
+
+#00c2d7
+
+);
+
+
+
+-webkit-background-clip:text;
+
+
+color:transparent;
+
+
+}
+
+
+
+.top-header p {
+
+
+margin-top:10px;
+
+
+color:#a8d8df;
+
+
+}
+
+
+
+
+.system-online {
+
+
+display:flex;
+
+
+align-items:center;
+
+
+gap:10px;
+
+
+padding:14px 22px;
+
+
+border-radius:40px;
+
+
+
+background:
+
+
+rgba(0,194,215,.15);
+
+
+
+border:
+
+
+1px solid
+
+rgba(0,194,215,.4);
+
+
+
+color:#7DE2D1;
+
+
+}
+
+
+
+
+
+
+
+/* MAIN GRID */
+
+
+.main-grid {
+
+
+display:grid;
+
+
+grid-template-columns:
+
+
+320px
+
+1fr
+
+320px;
+
+
+
+gap:30px;
+
+
+flex:1;
+
+
+}
+
+
+
+
+
+
+
+/* GLASS PANELS */
+
+
+.panel {
+
+
+
+padding:25px;
+
+
+
+background:
+
+
+linear-gradient(
+
+145deg,
+
+rgba(255,255,255,.12),
+
+rgba(255,255,255,.04)
+
+);
+
+
+
+backdrop-filter:
+
+blur(30px);
+
+
+
+border:
+
+
+1px solid
+
+rgba(125,226,209,.20);
+
+
+
+border-radius:30px;
+
+
+
+box-shadow:
+
+
+inset 0 0 40px
+
+rgba(0,194,215,.08),
+
+
+
+0 30px 80px
+
+rgba(0,0,0,.45);
+
+
+}
+
+
+
+.panel h2 {
+
+
+letter-spacing:2px;
+
+
+font-size:18px;
+
+
+}
+
+
+
+
+
+
+
+/* AGENT CARDS */
+
+
+.agent-card {
+
+
+display:flex;
+
+
+align-items:center;
+
+
+gap:15px;
+
+
+padding:18px;
+
+
+margin-top:18px;
+
+
+
+background:
+
+
+rgba(0,194,215,.08);
+
+
+
+border-radius:18px;
+
+
+
+border:
+
+
+1px solid
+
+rgba(125,226,209,.15);
+
+
+
+transition:.4s;
+
+
+}
+
+
+
+.agent-card:hover {
+
+
+transform:
+
+translateX(10px);
+
+
+
+background:
+
+
+rgba(0,194,215,.20);
+
+
+
+box-shadow:
+
+
+0 0 35px
+
+rgba(0,194,215,.25);
+
+
+
+}
+
+
+
+.agent-card h3 {
+
+
+margin:0;
+
+
+font-size:15px;
+
+
+}
+
+
+
+.agent-card p {
+
+
+margin-top:5px;
+
+
+color:#a6cbd4;
+
+
+font-size:13px;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* CENTER CORE */
+
+
+.neural-core {
+
+
+display:flex;
+
+
+justify-content:center;
+
+
+align-items:center;
+
+
+flex-direction:column;
+
+
+
+text-align:center;
+
+
+}
+
+
+
+
+
+.core-ring {
+
+
+width:300px;
+
+
+height:300px;
+
+
+
+border-radius:50%;
+
+
+
+display:flex;
+
+
+justify-content:center;
+
+
+align-items:center;
+
+
+
+
+background:
+
+
+
+radial-gradient(
+
+circle,
+
+rgba(0,194,215,.35),
+
+rgba(4,57,94,.45),
+
+transparent 70%
+
+);
+
+
+
+
+border:
+
+
+2px solid
+
+rgba(125,226,209,.45);
+
+
+
+box-shadow:
+
+
+
+0 0 100px
+
+rgba(0,194,215,.45);
+
+
+
+animation:
+
+
+waterCore 6s infinite ease-in-out;
+
+
+}
+
+
+
+
+
+@keyframes waterCore {
+
+
+
+0%,100%{
+
+
+transform:
+
+translateY(0)
+
+scale(1);
+
+
+
+}
+
+
+50%{
+
+
+transform:
+
+translateY(-20px)
+
+scale(1.05);
+
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+.neural-core h2 {
+
+
+margin-top:35px;
+
+
+letter-spacing:3px;
+
+
+}
+
+
+
+.neural-core p {
+
+
+color:#9fcdd6;
+
+
+}
+
+
+
+
+
+
+
+.processing {
+
+
+
+margin-top:25px;
+
+
+
+padding:16px 30px;
+
+
+
+border-radius:40px;
+
+
+
+background:
+
+
+rgba(255,255,255,.08);
+
+
+
+border:
+
+
+1px solid
+
+rgba(125,226,209,.25);
+
+
+
+}
+
+
+
+.processing strong {
+
+
+margin-left:15px;
+
+
+color:#00C2D7;
+
+
+}
+
+
+
+
+
+
+
+/* SYSTEM METRICS */
+
+
+.metric {
+
+
+margin-top:25px;
+
+
+}
+
+
+
+.metric span {
+
+
+color:#a8d8df;
+
+
+}
+
+
+
+.metric div {
+
+
+margin-top:8px;
+
+
+font-size:24px;
+
+
+font-weight:700;
+
+
+color:#7DE2D1;
+
+
+}
+
+
+
+
+
+
+
+.memory-status {
+
+
+margin-top:40px;
+
+
+padding:18px;
+
+
+display:flex;
+
+
+gap:12px;
+
+
+align-items:center;
+
+
+
+background:
+
+
+rgba(0,194,215,.12);
+
+
+
+border-radius:20px;
+
+
+
+color:#7DE2D1;
+
+
+}
+
+
+
+
+
+
+
+/* COMMAND BAR */
+
+
+.command-box {
+
+
+display:flex;
+
+
+gap:15px;
+
+
+padding:18px;
+
+
+border-radius:25px;
+
+
+
+background:
+
+
+rgba(255,255,255,.08);
+
+
+
+backdrop-filter:
+
+blur(25px);
+
+
+
+border:
+
+
+1px solid
+
+rgba(125,226,209,.25);
+
+
+
+}
+
+
+
+.command-box input {
+
+
+flex:1;
+
+
+background:transparent;
+
+
+border:none;
+
+
+outline:none;
+
+
+color:white;
+
+
+font-size:17px;
+
+
+}
+
+
+
+.command-box button {
+
+
+width:55px;
+
+
+height:55px;
+
+
+border-radius:50%;
+
+
+border:none;
+
+
+
+background:
+
+
+linear-gradient(
+
+135deg,
+
+#00C2D7,
+
+#7DE2D1
+
+);
+
+
+
+cursor:pointer;
+
+
+}
+
+
+
+
+
+
+
+@media(max-width:1100px){
+
+
+.main-grid{
+
+
+grid-template-columns:1fr;
+
+
+}
+
+
+}
+
+/* ===================================
+   TONY AI INTELLIGENCE CONSOLE
+=================================== */
+
+
+.ai-console {
+
+
+  margin-top:25px;
+
+
+  padding:25px;
+
+
+  border-radius:30px;
+
+
+
+  background:
+
+  linear-gradient(
+
+    145deg,
+
+    rgba(255,255,255,0.12),
+
+    rgba(0,194,215,0.06)
+
+  );
+
+
+
+  backdrop-filter:
+
+  blur(30px);
+
+
+
+  border:
+
+  1px solid
+
+  rgba(125,226,209,0.25);
+
+
+
+  box-shadow:
+
+  0 30px 80px
+
+  rgba(0,0,0,0.45);
+
+
+
+}
+
+
+
+
+
+.console-header {
+
+
+  display:flex;
+
+
+  align-items:center;
+
+
+  gap:12px;
+
+
+
+  color:#7DE2D1;
+
+
+}
+
+
+
+.console-header h2 {
+
+
+  margin:0;
+
+
+  font-size:20px;
+
+
+  letter-spacing:2px;
+
+
+}
+
+
+
+
+
+.message-area {
+
+
+  margin-top:25px;
+
+
+  min-height:250px;
+
+
+  max-height:350px;
+
+
+  overflow-y:auto;
+
+
+  display:flex;
+
+
+  flex-direction:column;
+
+
+  gap:15px;
+
+
+}
+
+
+
+
+
+
+
+.message {
+
+
+  display:flex;
+
+
+  align-items:flex-start;
+
+
+  gap:12px;
+
+
+  padding:15px 18px;
+
+
+  border-radius:18px;
+
+
+  max-width:80%;
+
+
+  line-height:1.5;
+
+
+}
+
+
+
+
+
+.ai-message {
+
+
+  background:
+
+
+  rgba(0,194,215,0.12);
+
+
+
+  border:
+
+  1px solid
+
+  rgba(0,194,215,0.25);
+
+
+}
+
+
+
+
+.user-message {
+
+
+  margin-left:auto;
+
+
+  background:
+
+
+  rgba(125,226,209,0.15);
+
+
+
+  border:
+
+  1px solid
+
+  rgba(125,226,209,0.25);
+
+
+}
+
+
+
+
+
+.thinking {
+
+
+  color:#7DE2D1;
+
+
+  font-style:italic;
+
+
+  animation:
+
+  pulseText 1.5s infinite;
+
+
+}
+
+
+
+
+@keyframes pulseText {
+
+
+0%{
+
+opacity:.4;
+
+}
+
+
+50%{
+
+opacity:1;
+
+}
+
+
+100%{
+
+opacity:.4;
+
+}
+
+
+}
+
+
+
+
+
+
+
+.console-input {
+
+
+  margin-top:20px;
+
+
+  display:flex;
+
+
+  gap:15px;
+
+
+}
+
+
+
+
+
+.console-input input {
+
+
+  flex:1;
+
+
+  padding:16px 20px;
+
+
+  border-radius:25px;
+
+
+  border:
+
+  1px solid
+
+  rgba(125,226,209,.25);
+
+
+
+  background:
+
+  rgba(255,255,255,.06);
+
+
+
+  color:white;
+
+
+  outline:none;
+
+
+  font-size:16px;
+
+
+}
+
+
+
+
+
+.console-input button {
+
+
+  width:55px;
+
+
+  height:55px;
+
+
+  border-radius:50%;
+
+
+  border:none;
+
+
+  cursor:pointer;
+
+
+
+  background:
+
+
+  linear-gradient(
+
+  135deg,
+
+  #00C2D7,
+
+  #7DE2D1
+
+  );
+
+
+
+  color:#021B2B;
+
+
+
+}
+
+
+
+.console-input button:hover {
+
+
+  transform:scale(1.08);
+
+
+}
+
+/* ==================================
+   TONY GOOGLE LOGIN SCREEN
+================================== */
+
+
+.login-screen {
+
+
+min-height:100vh;
+
+
+display:flex;
+
+
+align-items:center;
+
+
+justify-content:center;
+
+
+
+background:
+
+
+radial-gradient(
+
+circle at top,
+
+#007c91,
+
+#021b2b 55%,
+
+#010b14
+
+);
+
+
+
+overflow:hidden;
+
+
+
+}
+
+
+
+
+
+.login-card {
+
+
+
+width:380px;
+
+
+
+padding:45px;
+
+
+
+border-radius:35px;
+
+
+
+text-align:center;
+
+
+
+background:
+
+
+rgba(255,255,255,0.08);
+
+
+
+backdrop-filter:
+
+blur(25px);
+
+
+
+border:
+
+1px solid
+
+rgba(125,226,209,0.3);
+
+
+
+box-shadow:
+
+
+0 40px 100px
+
+rgba(0,0,0,.5);
+
+
+
+color:white;
+
+
+
+}
+
+
+
+
+
+.login-logo {
+
+
+display:flex;
+
+
+justify-content:center;
+
+
+margin-bottom:20px;
+
+
+color:#7DE2D1;
+
+
+
+}
+
+
+
+
+
+.login-card h1 {
+
+
+font-size:55px;
+
+
+letter-spacing:8px;
+
+
+margin:10px 0;
+
+
+
+color:#00C2D7;
+
+
+
+}
+
+
+
+
+
+.login-card p {
+
+
+color:#b8f4f0;
+
+
+margin-bottom:35px;
+
+
+
+}
+
+
+
+
+
+.login-card button {
+
+
+
+width:100%;
+
+
+
+padding:15px;
+
+
+
+border-radius:25px;
+
+
+
+border:none;
+
+
+
+cursor:pointer;
+
+
+
+display:flex;
+
+
+
+align-items:center;
+
+
+
+justify-content:center;
+
+
+
+gap:12px;
+
+
+
+font-size:16px;
+
+
+
+font-weight:600;
+
+
+
+background:
+
+
+linear-gradient(
+
+135deg,
+
+#00C2D7,
+
+#7DE2D1
+
+);
+
+
+
+color:#021B2B;
+
+
+
+transition:.3s;
+
+
+
+}
+
+
+
+
+
+.login-card button:hover {
+
+
+transform:scale(1.05);
+
+
+
+box-shadow:
+
+
+0 0 30px
+
+rgba(0,194,215,.6);
+
+
+
+}
+
+
+
+
+
+.logout-btn {
+
+
+margin-top:25px;
+
+
+
+width:100%;
+
+
+
+padding:12px;
+
+
+
+border-radius:20px;
+
+
+
+background:
+
+rgba(255,255,255,.08);
+
+
+
+border:
+
+1px solid
+
+rgba(125,226,209,.3);
+
+
+
+color:white;
+
+
+
+cursor:pointer;
+
+
+
+}
