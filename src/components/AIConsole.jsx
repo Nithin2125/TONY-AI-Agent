@@ -44,7 +44,7 @@ function AIConsole({ activeAgent, setActiveAgent }) {
 
     try {
       const response = await axios.post(
-  "https://fluffy-fortnight-pjpjv9xx4pr5c66x6-8000.app.github.dev/chat",
+  "/api/chat",
         {
           message: command,
           agent: activeAgent.name,

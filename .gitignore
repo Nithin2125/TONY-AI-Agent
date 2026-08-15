@@ -24,3 +24,12 @@ dist-ssr
 *.sw?
 .vercel
 .env*
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+tony_memory.db
+__pycache__/
+*.py[cod]
